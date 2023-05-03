@@ -1,0 +1,77 @@
+<idea-plugin>/home/vchigarev/ooma/dev/MarkerPlugin/src/main/resources/META-INF/plugin.xml
+    <id>org.chiga17.MarkerPlugin</id>
+    <name>Marker</name>
+    <vendor email="chiga17@mail.ru">Vladimir Chigarev</vendor>
+    <description>
+        <![CDATA[
+        <p>Mark all occurrences of selection with background color.</p>
+        <p>All actions are under <i>Edit - Mark all - ...</i> menu. <br>
+        Or use shortcuts (it might require to remove these shortcuts from other actions in <i>File - Settings - Keymap</i>)<br>
+        <span style="background-color: #00ffff64">Ctrl-1</span>,
+        <span style="background-color: #ff800064">Ctrl-2</span>,
+        <span style="background-color: #ffff0064">Ctrl-3</span>,
+        <span style="background-color: #8000ff64">Ctrl-4</span>,
+        <span style="background-color: #00800064">Ctrl-5</span>
+        to mark text fragments with different colors.<br>
+        <p>Same shortcuts without selection can be used to clear marks of corresponding group.</p>
+        Use <b>Ctrl-`</b> to clear all marks<br>
+        Use <b>Ctrl-Shift-C</b> to copy marked lines to copy-paste buffer
+        </p>
+        ]]>
+    </description>
+
+    <idea-version since-build="1832940.10"/>
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <actions>
+        <group id="org.intellij.sdk.action.GroupedActions" text="Mark All" popup="True" icon="PluginIcons.MAIN_ICON">
+            <add-to-group group-id="EditMenu" anchor="last"/>
+
+            <action id="org.chiga17.marker.MarkerAction.Style1"
+              class="org.chiga17.marker.MarkerAction$Action1"
+              text="Using 1st Style" description="Using 1st style">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 1"/>
+            </action>
+
+            <action id="org.chiga17.marker.MarkerAction.Style2"
+              class="org.chiga17.marker.MarkerAction$Action2"
+              text="Using 2st Style" description="Using 2st style">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 2"/>
+            </action>
+
+            <action id="org.chiga17.marker.MarkerAction.Style3"
+              class="org.chiga17.marker.MarkerAction$Action3"
+              text="Using 3st Style" description="Using 3st style">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 3"/>
+            </action>
+
+            <action id="org.chiga17.marker.MarkerAction.Style4"
+              class="org.chiga17.marker.MarkerAction$Action4"
+              text="Using 4st Style" description="Using 4st style">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 4"/>
+            </action>
+
+            <action id="org.chiga17.marker.MarkerAction.Style5"
+              class="org.chiga17.marker.MarkerAction$Action5"
+              text="Using 5st Style" description="Using 5st style">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl 5"/>
+            </action>
+
+            <action id="org.chiga17.marker.MarkerAction.ClearAllStyles"
+              class="org.chiga17.marker.MarkerAction$ClearAllAction"
+              text="Clear All Styles" description="Clear all Styles">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl BACK_QUOTE"/>
+            </action>
+
+            <action id="org.chiga17.marker.MarkerAction.CopyAction"
+              class="org.chiga17.marker.MarkerAction$CopyAction"
+              text="Copy Marked Lines" description="Copy marked lines">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift C"/>
+            </action>
+
+        </group>
+
+    </actions>
+</idea-plugin>
